@@ -15,10 +15,11 @@ Assim, cada trecho consecutivo de tres ligacoes contem dois H e um O.
 ## Testes
 
 `make test` compila com avisos tratados como erros e verifica os exemplos
-`HOH`, `OOHHHH` e `HHHOOH`, alem de 20 execucoes concorrentes com 30 moleculas
-cada. Tambem confirma a rejeicao de entradas com composicao ou simbolos
-invalidos. O programa valida os grupos produzidos e usa um limite de tempo nos
-testes para detectar bloqueios.
+`HOH`, `OOHHHH` e `HHHOOH`, as tres ordens de chegada de uma molecula e 20
+execucoes concorrentes com 30 moleculas cada. Tambem confirma a rejeicao de
+entradas com composicao ou simbolos invalidos. O programa valida os grupos
+produzidos e usa um limite de tempo nos testes para detectar bloqueios. Na
+revisao, 50 sequencias adicionais em ordens aleatorias tambem passaram.
 
 ## Execucao
 

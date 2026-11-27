@@ -19,14 +19,27 @@ diretorios abaixo:
 
 | Problema | Verificacao | Resultado |
 |---|---|---|
-| Montanha-russa | Nove casos com invariantes instrumentados, registrados em `montanha-russa/results/validacao.txt` | 9/9 passaram; a execucao nao foi repetida nesta maquina, que nao tem o SDK .NET |
-| Babuinos | Quatro versoes, 40 threads, travessia de 1 ms e chegadas simultaneas | Todas passaram seguranca, capacidade e conclusao |
-| H2O | Exemplos, entradas invalidas e 20 execucoes com 30 moleculas cada | `make test` passou |
+| Montanha-russa | Build .NET 10, nove casos instrumentados, demonstracao de carro unico e matriz rapida | Build sem avisos; 9/9 passaram; matriz rapida gerou 27 medicoes |
+| Babuinos | Quatro versoes; cargas de 40, 100 e 200 threads; 3 sementes por carga; mais 60 execucoes sob proporcoes 10/90, 50/50 e 90/10 | Todas passaram seguranca, capacidade e conclusao; corda nunca excedeu 5 |
+| H2O | `make test`, ordens de chegada, entradas invalidas e 50 sequencias adicionais | Todos os grupos verificados continham 2 H e 1 O; sem bloqueios |
 
 Os resultados de desempenho dependem do ambiente. A bateria dos babuinos acima
-e um teste de funcionamento, nao uma comparacao de desempenho controlada.
+e exploratoria, com travessia de 10 ms e tres repeticoes por configuracao; nao
+e uma comparacao de desempenho controlada. A matriz rapida da Montanha-Russa
+valida o executor, mas nao substitui o experimento completo de 30 repeticoes.
 
 ## Como executar
 
-Consulte o README de cada problema para requisitos e comandos. Para validar
-H2O em Linux, entre em `h2o/` e execute `make test`.
+Na raiz do repositorio:
+
+```sh
+make -C h2o test
+gcc -O2 -Wall -Wextra -pthread travessia-babuinos/babuinos_versoes_revisado.c -o /tmp/babuinos
+/tmp/babuinos -m 0 -n 40 -t 1 -g 0 -s 42
+cd montanha-russa
+dotnet build -c Release
+dotnet run -c Release --no-build -- --validate
+```
+
+Consulte os READMEs para opcoes adicionais e para executar os experimentos
+completos.

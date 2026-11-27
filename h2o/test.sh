@@ -14,10 +14,14 @@ run_case HHHOOH 2
 
 stress_sequence=
 iteration=0
-while [ "$iteration" -lt 30 ]; do
-    stress_sequence="${stress_sequence}HHO"
+while [ "$iteration" -lt 10 ]; do
+    stress_sequence="${stress_sequence}HHOHOHOHH"
     iteration=$((iteration + 1))
 done
+
+run_case HHO 1
+run_case HOH 1
+run_case OHH 1
 
 iteration=0
 while [ "$iteration" -lt 20 ]; do

@@ -11,24 +11,35 @@ inanicao sob chegadas continuas.
 
 ## Validacao
 
-Compilacao e teste executados em Linux:
+Compilacao e testes executados em Linux:
 
 ```sh
 gcc -O2 -Wall -Wextra -pthread babuinos_versoes_revisado.c -o babuinos
 ./babuinos -m 0 -n 40 -t 1 -g 0 -s 42
 ```
 
-As quatro versoes concluiram a execucao e passaram as verificacoes de sentidos
-opostos, limite de cinco na corda e conclusao dos 40 babuinos. A execucao foi
-um teste funcional curto; os numeros abaixo variam conforme o ambiente e nao
-devem ser tratados como benchmark.
+Na bateria de carga, todas as quatro versoes passaram as verificacoes de
+sentidos opostos, limite de cinco na corda e conclusao. Foram avaliadas
+chegadas simultaneas (`gap=0`), travessia de 10 ms, proporcao 50/50 e tres
+sementes para cada tamanho. A tabela mostra vazao media (babuinos/s) e espera
+media (ms), agregadas por versao:
 
-| Versao | Estrategia | Vazao (babuinos/s) | Espera media (ms) |
-|---:|---|---:|---:|
-| 1 | Ingenua, sem catraca | 4167,7 | 4 |
-| 2 | Catraca | 1856,8 | 10 |
-| 3 | Catraca e admissao serializada | 1870,2 | 10 |
-| 4 | Turnos com lote limitado (`k=10`) | 3890,9 | 4 |
+| Versao | Estrategia | n=40 | n=100 | n=200 |
+|---:|---|---:|---:|---:|
+| 1 | Ingenua, sem catraca | 443 (37 ms) | 470 (96 ms) | 478 (194 ms) |
+| 2 | Catraca | 207 (93 ms) | 194 (250 ms) | 193 (500 ms) |
+| 3 | Catraca e admissao serializada | 195 (102 ms) | 199 (238 ms) | 192 (502 ms) |
+| 4 | Turnos com lote limitado (`k=10`) | 409 (39 ms) | 435 (104 ms) | 439 (215 ms) |
+
+O pico observado na corda foi cinco em todas as configuracoes. A vazao das
+versoes 2 e 3 fica proxima de 200 babuinos/s neste ambiente, enquanto a espera
+cresce com a carga; isso evidencia o custo da alternancia. A versao 4 melhora
+a vazao, mas os testes finitos nao provam ausencia de inanicao sob todo
+escalonamento. Os numeros sao exploratorios, nao um benchmark controlado.
+
+Como estresse adicional, foram executadas 60 combinacoes de semente e
+proporcao direcional (10/90, 50/50 e 90/10), cada uma comparando as quatro
+versoes com 100 threads. Todas passaram os invariantes.
 
 ## Execucao
 
