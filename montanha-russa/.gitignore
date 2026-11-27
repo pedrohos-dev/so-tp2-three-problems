@@ -1,0 +1,6 @@
+bin/
+obj/
+results/medicoes_quick.csv
+results/resumo_quick.md
+results/graficos_quick/
+results/smoke_m50.csv
