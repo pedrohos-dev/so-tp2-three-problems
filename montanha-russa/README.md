@@ -3,12 +3,12 @@
 Solução em C# (.NET 10) dos problemas 1 e 1.1 (carro único e vários carros),
 com harness de experimentos, verificação de invariantes e geração de gráficos.
 
-O relatório final (decisões de projeto, implementação, testes e avaliação dos
-estudos de caso, em 10 páginas) está em `RELATORIO.md` e `RELATORIO.pdf`.
+O relatório de decisões de projeto, implementação, testes e avaliação está em
+`RELATORIO.md`. Os resultados experimentais e gráficos estão em `results/`.
 
 ## Como executar
 
-```powershell
+```sh
 dotnet build -c Release
 
 # verificação das restrições (invariantes instrumentados)

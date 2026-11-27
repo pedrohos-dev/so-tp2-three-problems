@@ -1,17 +1,17 @@
 Bateria de testes de correção — montanha-russa
-Data: 2026-11-26 21:42
+Data: 2026-11-27 03:23
 Invariantes instrumentados: ligados em todos os casos.
 
 ID | Caso | Configuração | Resultado | Tempo (s) | Detalhe
 ---|------|--------------|-----------|-----------|--------
-TC1 | Um carro, sem trabalho simulado | m=1 C=4 n=8 R=5 t=(0,0,0) | PASSOU | 0.0094 | 20 embarques/desembarques; invariantes OK
-TC2 | Um carro, com trabalho simulado | m=1 C=4 n=8 R=5 t=(1,2,1) | PASSOU | 0.0332 | 20 embarques/desembarques; invariantes OK
-TC3 | Três carros correndo em paralelo | m=3 C=4 n=24 R=5 t=(1,2,1) | PASSOU | 0.0398 | 60 embarques/desembarques; invariantes OK
-TC4 | Oito carros, capacidade 2, sem trabalho | m=8 C=2 n=32 R=4 t=(0,1,0) | PASSOU | 0.0187 | 64 embarques/desembarques; invariantes OK
-TC5 | Passageiros fixos (200) com 5 carros | m=5 C=4 n=200 R=3 t=(0,0,0) | PASSOU | 0.0863 | 60 embarques/desembarques; invariantes OK
-TC6 | Capacidade 8 com seis carros | m=6 C=8 n=96 R=3 t=(1,10,1) | PASSOU | 0.0714 | 144 embarques/desembarques; invariantes OK
-TC7 | Número máximo de carros (50), sem trabalho | m=50 C=4 n=200 R=2 t=(0,0,0) | PASSOU | 0.1216 | 400 embarques/desembarques; invariantes OK
-TC8 | Doze carros, dez voltas, trabalho simulado | m=12 C=4 n=96 R=10 t=(1,10,1) | PASSOU | 0.2632 | 480 embarques/desembarques; invariantes OK
-TC9 | Solução isolada do problema 1 | m=1 C=4 n=12 R=10 t=(1,2,1) | PASSOU | 0.0693 | 40 embarques/desembarques; contagens conferem
+TC1 | Um carro, sem trabalho simulado | m=1 C=4 n=8 R=5 t=(0,0,0) | PASSOU | 0.0086 | 20 embarques/desembarques; invariantes OK
+TC2 | Um carro, com trabalho simulado | m=1 C=4 n=8 R=5 t=(1,2,1) | PASSOU | 0.0237 | 20 embarques/desembarques; invariantes OK
+TC3 | Três carros correndo em paralelo | m=3 C=4 n=24 R=5 t=(1,2,1) | PASSOU | 0.0269 | 60 embarques/desembarques; invariantes OK
+TC4 | Oito carros, capacidade 2, sem trabalho | m=8 C=2 n=32 R=4 t=(0,1,0) | PASSOU | 0.0077 | 64 embarques/desembarques; invariantes OK
+TC5 | Passageiros fixos (200) com 5 carros | m=5 C=4 n=200 R=3 t=(0,0,0) | PASSOU | 0.0273 | 60 embarques/desembarques; invariantes OK
+TC6 | Capacidade 8 com seis carros | m=6 C=8 n=96 R=3 t=(1,10,1) | PASSOU | 0.0533 | 144 embarques/desembarques; invariantes OK
+TC7 | Número máximo de carros (50), sem trabalho | m=50 C=4 n=200 R=2 t=(0,0,0) | PASSOU | 0.0630 | 400 embarques/desembarques; invariantes OK
+TC8 | Doze carros, dez voltas, trabalho simulado | m=12 C=4 n=96 R=10 t=(1,10,1) | PASSOU | 0.1702 | 480 embarques/desembarques; invariantes OK
+TC9 | Solução isolada do problema 1 | m=1 C=4 n=12 R=10 t=(1,2,1) | PASSOU | 0.0469 | 40 embarques/desembarques; contagens conferem
 
 Resumo: 9/9 casos passaram.

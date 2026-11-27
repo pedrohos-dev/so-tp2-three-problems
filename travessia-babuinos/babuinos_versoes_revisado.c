@@ -213,7 +213,7 @@ static void entrar_v2(int d)        /* catraca */
     V(&turnstile);
     P(&capacidade);
 }
-static void entrar_v3(int d)        /* catraca com FIFO estrito */
+static void entrar_v3(int d)        /* catraca com admissao serializada */
 {
     P(&turnstile);
     luz_acende(d);
